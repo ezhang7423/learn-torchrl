@@ -15,9 +15,9 @@ install:
 	# TODO ensure version of poetry is correct
 	! type -P poetry &> /dev/null && pipx install poetry==1.7.1
 
-	# install research_project conda environment
-	$(CONDA) create -n research_project python=3.10 -y
-	$(CONDA_ACTIVATE) research_project
+	# install learning_torchrl conda environment
+	$(CONDA) create -n learning_torchrl python=3.10 -y
+	$(CONDA_ACTIVATE) learning_torchrl
 
 	type python
 	
