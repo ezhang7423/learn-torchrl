@@ -5,6 +5,7 @@ Other global variables
 """
 import os
 import sys
+from dataclasses import dataclass
 from importlib import metadata as importlib_metadata
 from pathlib import Path
 
@@ -50,3 +51,18 @@ def setup_experiment():
         (REPO_DIR / "runs").symlink_to(RUN_DIR)
 
     os.chdir(LOG_DIR)
+
+
+@dataclass
+class Config:
+    policy_layers: int = 3
+    policy_hidden: int = 64
+    name: str = f"experiment_{datestr()}"
+    env: str = "CartPole-v1"
+    seed: int = 42
+    init_rand_steps: int = 5000
+    frames_per_batch: int = 100
+    optim_steps: int = 10
+    batch_size: int = 128
+    soft_update: float = 0.99
+    lr: float = 0.02
